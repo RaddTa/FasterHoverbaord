@@ -1,0 +1,14 @@
+for i,v in pairs(game:GetService("ReplicatedStorage").Game.Hoverboards:GetChildren()) do
+    local modul = nil
+    for k,e in pairs(v:GetChildren()) do
+        if string.find(e.Name,"Data") then
+            modul = e
+        end
+    end
+    if modul ~= nil then
+        local s = require(modul)
+        s["speed"] = 3
+    else
+        warn("no module found lol")
+    end
+end
